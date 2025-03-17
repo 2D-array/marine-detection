@@ -82,27 +82,24 @@ if uploaded_file is not None:
             # Finalize
             progress_bar.progress(100)
             result_rgb = cv2.cvtColor(result, cv2.COLOR_BGR2RGB)
-            st.image(result_rgb, use_column_width=True)
+            st.image(result_rgb, use_container_width=True)
             
             # Remove progress bar and info messages
             progress_bar.empty()
             
     st.success("Detection complete!")
     
-    
     # Note about accuracy
     st.info("Note: Detection accuracy depends on image complexity and selected parameters.")
 
 else:
-    # Show placeholder when no image is uploaded
-# Show placeholder when no image is uploaded
-st.markdown("""
-    <div style="text-align: center; padding: 50px; background-color: #1e1e1e; border-radius: 10px;">
-        <h3 style="color: #ffffff;">Upload an image to begin detection</h3>
-        <p style="color: #cccccc;">Supported formats: JPG, PNG, JPEG, WEBP</p>
-    </div>
-""", unsafe_allow_html=True)
-
+    # Dark-themed notice block
+    st.markdown("""
+        <div style="text-align: center; padding: 40px; background-color: #1c1c1c; border-radius: 10px;">
+            <h3 style="color: white;">Upload an image to begin detection</h3>
+            <p style="color: #cccccc;">Supported formats: JPG, PNG, JPEG, WEBP</p>
+        </div>
+    """, unsafe_allow_html=True)
 
 # Footer
 st.markdown("---")
