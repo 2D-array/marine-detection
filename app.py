@@ -12,7 +12,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for professional look
+# Custom CSS
 st.markdown("""
     <style>
     .main .block-container {
@@ -23,7 +23,7 @@ st.markdown("""
         background-color: #1E90FF;
     }
     .custom-box {
-        background-color: #1e1e1e;
+        background-color: #000000;
         color: white;
         padding: 40px;
         border-radius: 12px;
@@ -38,9 +38,9 @@ st.markdown("""
         color: #dddddd;
     }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-# Sidebar controls
+# Sidebar for controls
 with st.sidebar:
     st.image("https://img.icons8.com/fluency/96/null/cargo-ship.png", width=80)
     st.title("Detection Settings")
@@ -60,14 +60,14 @@ with st.sidebar:
         help="Higher values mean fewer but more confident detections"
     )
 
-# Main section
+# Main content
 st.title("Ship Detection System")
 st.markdown("Upload an image to detect ships using Selective Search + Faster R-CNN")
 
 # File uploader
 uploaded_file = st.file_uploader("", type=["jpg", "png", "jpeg", "webp"])
 
-# Image processing
+# Process the image
 if uploaded_file is not None:
     col1, col2 = st.columns(2)
 
@@ -81,27 +81,34 @@ if uploaded_file is not None:
     with col2:
         st.subheader("Detection Results")
         with st.spinner("Processing image..."):
+            # Show progress bar
             progress_bar = st.progress(0)
 
+            # Region proposal
             progress_bar.progress(25)
             st.info("Running selective search...")
             boxes = find_regions(image_cv, method=method)
 
+            # Detection
             progress_bar.progress(50)
             st.info("Detecting ships...")
             result = detect_ships(image_cv.copy(), boxes, confidence_threshold=conf_threshold)
 
+            # Finalize
             progress_bar.progress(100)
             result_rgb = cv2.cvtColor(result, cv2.COLOR_BGR2RGB)
             st.image(result_rgb, use_container_width=True)
 
+            # Remove progress bar
             progress_bar.empty()
 
     st.success("Detection complete!")
+
+    # Note about accuracy
     st.info("Note: Detection accuracy depends on image complexity and selected parameters.")
 
 else:
-    # Show dark styled message
+    # Show placeholder with black background
     st.markdown("""
         <div class="custom-box">
             <h3>Upload an image to begin detection</h3>
