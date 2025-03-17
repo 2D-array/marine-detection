@@ -1,18 +1,22 @@
+Here's a properly structured and professional version of your README:
+
+---
+
 # 🚢 Maritime Vessel Detection using Deep Learning & Selective Search
 
-A deep learning-based system to detect maritime vessels in satellite imagery using **Convolutional Neural Networks (CNN)** and **Selective Search**. The model identifies potential ship regions and classifies them with a custom-trained neural network. Built with TensorFlow, OpenCV, and Streamlit.
+A deep learning-based system to detect maritime vessels in satellite imagery using **Convolutional Neural Networks (CNN)** and **Selective Search**. The model identifies potential ship regions and classifies them using a custom-trained neural network. Built with TensorFlow, OpenCV, and Streamlit.
 
 ---
 
 ## 🔍 Project Overview
 
-Ship detection in satellite images is crucial for maritime security, navigation monitoring, and logistics. This project combines **region proposal** techniques with **deep learning** to perform accurate object detection without relying on full-fledged object detection architectures like Faster R-CNN or YOLO.
+Ship detection in satellite images is crucial for maritime security, navigation monitoring, and logistics. This project combines **region proposal** techniques with **deep learning** to perform accurate object detection without using complex architectures like Faster R-CNN or YOLO.
 
-**Key Features:**
-- 📷 Ship detection from aerial/satellite images.
-- ⚙️ Region proposals using Selective Search.
-- 🧠 Custom CNN trained to classify ship vs. non-ship.
-- 📊 Real-time inference and visualization using Streamlit.
+### ✨ Key Features
+- 📷 Ship detection from aerial/satellite images  
+- ⚙️ Region proposals using Selective Search  
+- 🧠 Custom CNN to classify ship vs non-ship  
+- 📊 Real-time visualization via Streamlit  
 
 ---
 
@@ -20,79 +24,125 @@ Ship detection in satellite images is crucial for maritime security, navigation 
 
 | Module              | Description                                                                 |
 |---------------------|-----------------------------------------------------------------------------|
-| **Selective Search**| Extracts potential regions of interest from satellite imagery.              |
-| **CNN Classifier**  | A lightweight Keras-based model trained to detect ships in proposed regions.|
-| **OpenCV**          | Used for image preprocessing and drawing bounding boxes.                    |
-| **Streamlit**       | Interactive web app for uploading images and visualizing detections.        |
+| **Selective Search**| Extracts potential regions of interest from satellite imagery               |
+| **CNN Classifier**  | Keras-based model trained to detect ships in proposed regions               |
+| **OpenCV**          | Used for image preprocessing and bounding box visualization                |
+| **Streamlit**       | Interactive web UI for uploading images and viewing detection results       |
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Python**
-- **TensorFlow / Keras**
-- **OpenCV**
-- **Streamlit**
+- Python
+- TensorFlow / Keras
+- OpenCV
+- Streamlit
 - NumPy, Matplotlib, scikit-learn
 
 ---
 
 ## 📁 Project Structure
 
-Maritime Vessel Detection/ ├── app.py # Streamlit frontend ├── train_model.py # CNN model training ├── predict.py # Prediction logic ├── models/ # Saved model files ├── utils/ # Helper scripts ├── Dataset/ # (Not included - contains large dataset) ├── .gitignore └── README.md
-
-yaml
-Copy
-Edit
+```
+marine-detection/
+├── app.py                 # Streamlit frontend
+├── train_model.py         # CNN model training
+├── utils/
+│   ├── prediction.py      # Inference logic
+│   └── selective_search.py# Region proposal logic
+├── models/                # Saved trained model
+├── Dataset/               # Satellite imagery dataset (not included)
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-1. **Clone the Repository**
+### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/2D-array/marine-detection.git
 cd marine-detection
-Install Dependencies
-bash
-Copy
-Edit
+```
+
+### 2. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-Run the Web App
-bash
-Copy
-Edit
+```
+
+### 3. Run the Streamlit App
+
+```bash
 streamlit run app.py
-🧪 Model Performance
-⚠️ The current model is trained on an older dataset and may not generalize well to modern satellite images. It's built for educational/demonstration purposes.
+```
 
-Accuracy: ~84% (validation)
-False Positives: Low
-False Negatives: Moderate
-📦 Dataset
-shipsnet.json (Not included in the repository due to GitHub's 100MB file size limit)
-Format: RGB images + ship/non-ship labels
-You can download it separately from: ShipsNet Kaggle Dataset
-Once downloaded, place the file in the Dataset/ directory.
+---
 
-📸 Screenshots
-![Ship-Detector](https://github.com/user-attachments/assets/7b9df57f-eff0-487d-853a-09232301871a)
+## 🧪 Model Performance
 
+> ⚠️ This model is trained on an older dataset and may not generalize well to all modern satellite imagery. This is meant for educational/demonstration purposes.
 
-<p align="center"> <img src="assets/demo1.png" width="500" alt="Detection Example"> <br> <em>Ship detection with bounding boxes drawn using OpenCV</em> </p>
-🧠 Learnings & Challenges
-📚 Learned about region-based detection and how Selective Search works under the hood.
-🤯 Faced challenges in managing large image datasets and performance optimization.
-🎯 Gained experience deploying CV models in real-time using Streamlit.
-🙌 Acknowledgements
-Inspired by Kaggle Notebooks and open-source contributions.
-Special thanks to various GitHub repositories for CNN classification strategies.
-📄 License
-This project is licensed under the MIT License.
-Feel free to fork, use, or contribute for educational or research purposes.
+- **Validation Accuracy**: ~84%  
+- **False Positives**: Low  
+- **False Negatives**: Moderate  
 
-🔗 Connect with Me
-📧 adityaup0304@gmail.com
- 
+---
 
-Happy shipping 🚢😄
+## 📦 Dataset
+
+The dataset used (`shipsnet.json`) is not included in this repo due to size limits.
+
+**Download from:** [Kaggle - ShipsNet](https://www.kaggle.com/datasets/rhammell/ships-in-satellite-imagery)
+
+**After downloading:**
+- Place the dataset file inside the `Dataset/` directory.
+
+---
+
+## 📸 Demo
+
+<p align="center">
+  <img src="assets/demo1.png" width="600" alt="Detection Demo" />
+  <br>
+  <em>Ship detection with bounding boxes drawn using OpenCV</em>
+</p>
+
+---
+
+## 🎯 Learnings & Challenges
+
+- 📚 Learned how Selective Search extracts region proposals  
+- 🤯 Tackled performance issues on large-scale satellite images  
+- 🚀 Gained experience deploying deep learning models using Streamlit  
+
+---
+
+## 🙌 Acknowledgements
+
+- Inspired by open-source contributions and Kaggle notebooks  
+- Special thanks to GitHub repositories exploring CNN classification strategies  
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.  
+Feel free to fork, use, or contribute for educational/research purposes.
+
+---
+
+## 🔗 Connect with Me
+
+📧 Email: [adityaup0304@gmail.com](mailto:adityaup0304@gmail.com)
+
+---
+
+Happy shipping! 🚢😄
+
+---
+
+Let me know if you want help generating badges, deployment instructions, or adding a GIF demo!
