@@ -95,12 +95,14 @@ if uploaded_file is not None:
 
 else:
     # Show placeholder when no image is uploaded
-    st.markdown("""
-        <div style="text-align: center; padding: 50px; background-color: #f0f2f6; border-radius: 10px;">
-            <h3>Upload an image to begin detection</h3>
-            <p>Supported formats: JPG, PNG, JPEG, WEBP</p>
-        </div>
-    """, unsafe_allow_html=True)
+# Show placeholder when no image is uploaded
+st.markdown("""
+    <div style="text-align: center; padding: 50px; background-color: #1e1e1e; border-radius: 10px;">
+        <h3 style="color: #ffffff;">Upload an image to begin detection</h3>
+        <p style="color: #cccccc;">Supported formats: JPG, PNG, JPEG, WEBP</p>
+    </div>
+""", unsafe_allow_html=True)
+
 
 # Footer
 st.markdown("---")
