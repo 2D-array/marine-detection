@@ -61,7 +61,7 @@ if uploaded_file is not None:
         image = Image.open(uploaded_file).convert('RGB')
         image_np = np.array(image)
         image_cv = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
-        st.image(image, use_column_width=True)
+        st.image(image, use_container_width=True)
     
     with col2:
         st.subheader("Detection Results")
